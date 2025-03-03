@@ -1,13 +1,13 @@
-# class-cpp-container-template
+# factory-cpp-container-template
 
 ## Build
 
 ```zsh
-docker build -t simple-class-cpp .
+docker build -t factory-cpp .
 ```
 
 ## Run
 
 ```zsh
-docker run --rm simple-class-cpp
+docker run --rm factory-cpp
 ```
