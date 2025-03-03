@@ -8,18 +8,10 @@
 class SensorFactory {
    public:
     static std::unique_ptr<SensorModule> createTemperatureModule(int count) {
-        auto module = std::make_unique<TemperatureSensorModule>();
-        for (int i = 0; i < count; ++i) {
-            module->addSensor(std::make_unique<TemperatureSensor>());
-        }
-        return module;
+        return std::make_unique<TemperatureSensorModule>(count);
     }
 
-    static std::unique_ptr<SensorModule> createPressureModule(int count) {
-        auto module = std::make_unique<RangeSensorModule>();
-        for (int i = 0; i < count; ++i) {
-            module->addSensor(std::make_unique<RangeSensor>());
-        }
-        return module;
+    static std::unique_ptr<SensorModule> createRangeModule(int count) {
+        return std::make_unique<RangeSensorModule>(count);
     }
 };
