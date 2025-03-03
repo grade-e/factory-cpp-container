@@ -1,11 +1,16 @@
-#include "Factory.hpp"
+#include "SensorFactory.hpp"
 
 int main() {
-    std::unique_ptr<Product> product1 = Factory::createProduct("A");
-    if (product1) product1->use();
+    auto tempModule = SensorFactory::createTemperatureModule(2);
+    auto rangeModule = SensorFactory::createPressureModule(1);
 
-    std::unique_ptr<Product> product2 = Factory::createProduct("B");
-    if (product2) product2->use();
+    // 센서 데이터 읽기
+    tempModule->readAll();
+    rangeModule->readAll();
+
+    // 센서 데이터 처리
+    tempModule->processData();
+    rangeModule->processData();
 
     return 0;
 }
